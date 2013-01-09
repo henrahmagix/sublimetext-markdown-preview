@@ -1,0 +1,6 @@
+[
+	{
+		"keys": ["alt+m"], "command": "markdown_preview", "args": {"target": "browser"},
+		"context": [{"key": "markdown_preview_is_enabled", "operator": "equal", "operand": ""}]
+	}
+]
