@@ -28,9 +28,9 @@
     "css": "default",
 
     /*
-        Sets the supported filetypes for auto-reload on save
+        Sets whether auto-reloads the HTML on save
     */
-    "markdown_filetypes": [".md", ".markdown", ".mdown"]
+    "auto-reload-on-save": true
 }
 
 
