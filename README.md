@@ -25,9 +25,8 @@ If you have the ST2 LiveReload plugin, your browser will autorefresh the display
 
 ## Usage :
 
- - use `cmd+shift+P` then `Markdown Preview` to launch a preview
- - or bind some key in your user key binding, using a line like this one:
-   `{ "keys": ["alt+m"], "command": "markdown_preview", "args": {"target": "browser"} },`
+ - use `alt+m` to launch a preview
+ - or use `cmd+shift+P` then `Markdown Preview` to launch a preview
  - once converted a first time, the output HTML will be updated on each file save (with LiveReload plugin)
 
 ## Uses :

@@ -12,6 +12,11 @@ import urllib2
 settings = sublime.load_settings('MarkdownPreview.sublime-settings')
 
 
+def is_enabled_in_view(view):
+    caret = view.sel()[0].a
+    return view.scope_name(caret).lower().startswith("text.html.markdown")
+
+
 def getTempMarkdownPreviewPath(view):
     " return a permanent full path of the temp markdown preview file "
     tmp_filename = '%s.html' % view.id()
@@ -23,12 +28,17 @@ class MarkdownPreviewListener(sublime_plugin.EventListener):
     """ update the output html when markdown file has already been converted once """
 
     def on_post_save(self, view):
-        if view.file_name().endswith(tuple(settings.get('markdown_filetypes', (".md", ".markdown", ".mdown")))):
+        if settings.get('auto-reload-on-save') and is_enabled_in_view(view):
             temp_file = getTempMarkdownPreviewPath(view)
             if os.path.isfile(temp_file):
                 # reexec markdown conversion
                 view.run_command('markdown_preview', {'target': 'disk'})
                 sublime.status_message('Markdown preview file updated')
+
+    def on_query_context(self, view, key, operator, operand, match_all):
+        if key == 'markdown_preview_is_enabled':
+            return is_enabled_in_view(view)
+        return None
 
 
 class MarkdownCheatsheetCommand(sublime_plugin.TextCommand):
