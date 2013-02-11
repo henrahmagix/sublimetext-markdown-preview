@@ -85,6 +85,16 @@ class MarkdownPreviewCommand(sublime_plugin.TextCommand):
 
         return styles
 
+    def getJS(self):
+        config_js = settings.get('js')
+
+        scripts = ''
+        if config_js:
+            for source in config_js:
+                scripts += u"<script type='text/javascript' src='%s'></script>" % source
+
+        return scripts
+
     def postprocessor(self, html):
         # fix relative paths in images/scripts
         def tag_fix(match):
@@ -149,6 +159,7 @@ class MarkdownPreviewCommand(sublime_plugin.TextCommand):
             html_contents = u'<!DOCTYPE html>'
             html_contents += '<html><head><meta charset="%s">' % encoding
             html_contents += self.getCSS()
+            html_contents += self.getJS()
             if livereload_installed:
                 html_contents += '<script>document.write(\'<script src="http://\' + (location.host || \'localhost\').split(\':\')[0] + \':35729/livereload.js?snipver=1"></\' + \'script>\')</script>'
             html_contents += '</head><body>'
