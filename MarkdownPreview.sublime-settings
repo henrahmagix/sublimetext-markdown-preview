@@ -33,7 +33,7 @@
         true - Any file with matching a .markdown_filetype extension with .css will be loaded as an override
         false - Matching files ignored
     */
-    "allow_css_overrides": true,
+    "allow_css_overrides": false,
 
     /*
         Sets whether auto-reloads the HTML on save
