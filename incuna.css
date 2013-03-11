@@ -1,24 +1,38 @@
 body {
   background-color: #fe7f00;
-  text-align: center;
-}
-
-body, article h2, article h3, article p {
   color: white;
   font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 28px;
   font-weight: 300;
+  margin: 0 auto;
 }
 
-article h1, article h2 {
-  font-size: 56px;
-}
-article h3 {
-  font-weight: 700;
+h1, h2, h3 {
+  font-weight: bold;
   text-align: center;
 }
-article p {
-  font-size: 26px;
+
+h1 {
+  font-size: 2em;
+}
+
+h2 {
+  font-size: 1.8em;
+}
+
+h3 {
+  font-size: 1.6em;
+}
+
+p, ul {
+  font-size: 1em;
   line-height: 1.5;
+  margin: 1em auto;
+  width: 500px;
+}
+
+ul {
+  list-style-position: inside;
 }
 
 header {
