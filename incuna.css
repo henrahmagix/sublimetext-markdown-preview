@@ -35,6 +35,16 @@ ul {
   list-style-position: inside;
 }
 
+a {
+  color: inherit;
+  padding-bottom: 1px;
+  text-decoration: none;
+}
+
+a:hover {
+  border-bottom: 2px solid;
+}
+
 header {
   background: url(../img/incuna_logo.png) no-repeat center;
   height: 200px;
