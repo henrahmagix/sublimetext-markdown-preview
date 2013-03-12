@@ -32,16 +32,16 @@
             // slide content. To do this, get the difference between the bottom of the
             // last and top of the first slide element. We should only do this if there
             // is a next slide.
-            var lastSlideELement = slides.eq(n + 1).prev();
+            var lastSlideElement = slides.eq(n + 1).prev();
             var titleTop = 150;
             var contentHeight = 0;
-            if (lastSlideELement.length === 0) {
-                // lastSlideELement will be empty if we are at the last slide. In that case
+            if (lastSlideElement.length === 0) {
+                // lastSlideElement will be empty if we are at the last slide. In that case
                 // find the last element. .nextAll().andSelf() ensures we don't end up with
                 // an empty set since nextAll() will return empty if at the last element.
-                lastSlideELement = s.nextAll().andSelf().last();
+                lastSlideElement = s.nextAll().andSelf().last();
             }
-            contentHeight = (lastSlideELement.offset().top + lastSlideELement.height()) - top;
+            contentHeight = (lastSlideElement.offset().top + lastSlideElement.height()) - top;
             // The top line is half the window plus half the content height.
             titleTop = ($window.height() / 2) - (contentHeight / 2);
 
@@ -63,7 +63,7 @@
             slides.css('margin-top', $window.height());
             // Also set this gap between the last slide element and the slides container.
             // This stops the end slide always being at the bottom of the window.
-            $('.markdown-body').css('margin-bottom', $window.height());
+            $('body').css('margin-bottom', $window.height());
 
             $(document).keydown(function(e) {
                 var key = e.which || e.keyCode || e.charCode;
